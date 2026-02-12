@@ -10,7 +10,7 @@ namespace ProbabilityCalculator
     {
         public static IServiceCollection ProjectDependencies(this IServiceCollection services)
         {
-            // Move all your logic here
+          
             services.AddScoped<ICalculationType, Either>();
             services.AddScoped<ICalculationType, Combined>();
 
@@ -22,3 +22,4 @@ namespace ProbabilityCalculator
         }
     }
 }
+

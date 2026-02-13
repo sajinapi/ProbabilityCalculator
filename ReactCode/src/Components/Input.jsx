@@ -2,22 +2,22 @@ import { useState } from 'react';
 import { Form,Col,Row} from "react-bootstrap"
 const Input =(props)=>{
 const [number, setNumber] = useState(null);
-const [isValid, setIsValid] = useState(false);
+const [isInValid, setIsInValid] = useState(false);
 
 const handleNumberChange=(e)=>{
     setNumber(e.target.value)
     const inputValue = e.target.value;
      if (inputValue === "" || inputValue==null) {
-        setIsValid(false); 
+        setIsInValid(false); 
         return;
      }
     const num = parseFloat(inputValue);
     if(!isNaN(Number(inputValue))&&!isNaN(num) && num >= 0 && num <= 1){
          props.getNumber(inputValue)
-         setIsValid(false);
+         setIsInValid(false);
     } 
     else {
-        setIsValid(true)
+        setIsInValid(true)
     }
 }
 return(
@@ -31,7 +31,7 @@ return(
             type="text" 
             className='inputClass'
             value={number} 
-            isInvalid={isValid}
+            isInvalid={isInValid}
             onChange={handleNumberChange}
             />
             <Form.Control.Feedback type="invalid">
@@ -42,5 +42,6 @@ return(
 </>
 );
 }
+
 
 export default Input
